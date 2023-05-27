@@ -36,7 +36,7 @@ const App = () => {
         setError(error);
       })
       .finally(() => setIsLoading(false));
-  }, [userRequest, page]);
+  }, [userRequest, page, photos]);
 
   const openModal = (imgBigUrl, imgAlt) => {
     setShowModal(true);
