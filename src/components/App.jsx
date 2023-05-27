@@ -29,14 +29,14 @@ const App = () => {
           setIsEmpty(true);
           return;
         }
-        setPhotos([...photos, ...hits]);
+        setPhotos(prevphotos => [...prevphotos, ...hits]);
         setShowBtn(page < Math.ceil(totalHits / 12));
       })
       .catch(error => {
         setError(error);
       })
       .finally(() => setIsLoading(false));
-  }, [userRequest, page, photos]);
+  }, [userRequest, page]);
 
   const openModal = (imgBigUrl, imgAlt) => {
     setShowModal(true);
