@@ -4,16 +4,15 @@ import css from './Modal.module.css';
 
 const Modal = ({ imgAlt, imgBigUrl, closeModal }) => {
   useEffect(() => {
+    const handlePressESC = event => {
+      if (event.code === 'Escape') closeModal();
+    };
     document.addEventListener('keydown', handlePressESC);
 
     return () => {
       document.removeEventListener('keydown', handlePressESC);
     };
-  });
-
-  const handlePressESC = event => {
-    if (event.code === 'Escape') closeModal();
-  };
+  }, [closeModal]);
 
   const handleClick = event => {
     if (event.currentTarget === event.target) closeModal();
